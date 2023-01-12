@@ -1,0 +1,43 @@
+# Note: You need to replace the <image_name> and <secret_name> with the actual values. Also, you can add more environment variables as required by your application.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: todolist-app
+labels:
+app: todolist-app
+spec:
+replicas: 2
+selector:
+matchLabels:
+app: todolist-app
+template:
+metadata:
+labels:
+app: todolist-app
+spec:
+containers:
+- name: todolist-app
+image: <image_name>
+ports:
+- containerPort: 3000
+env:
+- name: PORT
+value: "3000"
+- name: NODE_ENV
+value: "production"
+imagePullSecrets:
+- name: <secret_name>
+
+apiVersion: v1
+kind: Service
+metadata:
+name: todolist-app
+spec:
+selector:
+app: todolist-app
+ports:
+
+name: http
+port: 3000
+targetPort: 3000
+type: LoadBalancer

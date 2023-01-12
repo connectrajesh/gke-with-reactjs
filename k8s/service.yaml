@@ -1,0 +1,14 @@
+# This service.yaml file creates a ClusterIP type service called "todolist-service" that routes traffic to pods labeled with "app: todolist" on port 80 to port 3000. The "selector" field tells Kubernetes which pods to target and the "ports" field specifies the ports to use for the service. In this case, the service is routing traffic on port 80 to the pods' port 3000.
+# Note that this is just an example file and you may need to adjust the ports and selector labels to match your specific application.
+apiVersion: v1
+kind: Service
+metadata:
+name: todolist-service
+spec:
+selector:
+app: todolist
+ports:
+- name: http
+port: 80
+targetPort: 3000
+type: ClusterIP
