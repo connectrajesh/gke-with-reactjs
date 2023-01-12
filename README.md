@@ -1,2 +1,43 @@
-# gke-with-reactjs
-GKE example with react js app
+# Deploying a TodoList React App on Google Kubernetes Engine using Terraform
+This project demonstrates how to deploy a simple TodoList React application on Google Kubernetes Engine (GKE) using Terraform.
+
+# Prerequisites
+
+A Google Cloud Platform (GCP) account
+Terraform installed locally
+
+# Getting Started
+
+* Create a new GCP project and enable the Kubernetes Engine API
+* Clone this repository
+* In the `terraform` directory, update the `provider.tf` file with your GCP credentials
+* Run `terraform init` to initialize Terraform
+* Run `terraform apply` to provision the resources for your GKE cluster, including the Kubernetes nodes and load balancer
+* Build and push the Docker image for the TodoList app to a container registry (such as GCR or Docker Hub)
+* Update the `k8s` directory with the image name and location
+* Run `kubectl apply -f k8s` to deploy the TodoList app on your GKE cluster
+
+# File Structure
+
+    .
+    ├── README.md
+    ├── k8s
+    │   ├── deployment.yaml
+    │   ├── service.yaml
+    │   └── ingress.yaml
+    └── terraform
+        ├── main.tf
+        ├── provider.tf
+        ├── variables.tf
+        └── outputs.tf
+
+* The `k8s` directory contains the Kubernetes manifests for deploying the TodoList app
+* The `terraform` directory contains the Terraform configuration for provisioning the GKE cluster
+
+# Note
+
+Make sure to clean up the resources created by Terraform by running `terraform destroy`. Keep in mind that this will also delete the GKE cluster and all associated resources, which may result in charges to your GCP account.
+
+Also, you might want to use a different version of the react app if you want to test with the latest version.
+
+This is a simple example, the real-world scenario might have different requirements.
