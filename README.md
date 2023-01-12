@@ -53,6 +53,6 @@ This is a simple example, the real-world scenario might have different requireme
 * Run `kubectl apply -f k8s/` to deploy the app to your GKE cluster.
 * The Todo List App should now be accessible through the URL specified in the `ingress.yaml` file.
 
-#Note
+# Note
     
 Make sure to replace `<your-docker-username>` with your actual Docker Hub username.
