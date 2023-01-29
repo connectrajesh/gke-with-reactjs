@@ -1,0 +1,14 @@
+@startuml
+
+actor User
+
+User -> GoogleKubernetesEngine : Setting up the GKE Environment
+GoogleKubernetesEngine -> KubernetesMaster : Creating and Connecting to Cluster
+KubernetesMaster --> KubernetesNodes : Creating Kubernetes Pods
+KubernetesNodes --> Services : Creating an Internal Service
+Services --> Ingress : Creating an Ingress Object
+Ingress --> LoadBalancer : Creating an Ingress Resource for Single HTTP Load Balancer
+LoadBalancer --> StaticIP : Creating a Static IP Address
+StaticIP --> DNSRecord : Retaining Host DNS Records
+
+@enduml
