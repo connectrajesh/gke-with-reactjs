@@ -1,5 +1,5 @@
 variable "project_id" {
-  default = "my-gcp-project"
+  default = "supple-bank-307921"
 }
 
 variable "cluster_name" {
@@ -7,14 +7,18 @@ variable "cluster_name" {
 }
 
 variable "region" {
-  default = "us-central1"
+  default = "europe-west2"
+}
+
+variable "zone" {
+  default = "europe-west2-b"
 }
 
 variable "node_count" {
-  default = 3
+  default = 1
 }
 
-variable "node_machine_type" {
+variable "machine_type" {
   default = "n1-standard-1"
 }
 
@@ -26,6 +30,14 @@ variable "app_container_port" {
   default = 3000
 }
 
-You can modify the above code according to your requirement.
+variable "app_container_name" {
+  default = "my-react-app"
+}
 
-# The variables.tf file declares variables that can be used in other parts of the Terraform configuration. For example, the project_id, cluster_name, region, node_count, node_machine_type, app_image, and app_container_port variables are used in the main.tf file to create the GKE cluster and deploy the React.js app.
+variable "app_container_image" {
+  default = "gcr.io/my-gcp-project/my-react-app:latest"
+}
+
+variable "credentials_file" {
+  default = "./credentials.json"
+}

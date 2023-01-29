@@ -1,0 +1,6 @@
+docker/*
+terraform-getting-started/*
+terraform-getting-started.zip
+**/.terraform/**
+*/**/.tfvars
+*.tfstate
